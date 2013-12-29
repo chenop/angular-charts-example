@@ -8,12 +8,13 @@
 
 var chartsApp = angular.module('chartsApp');
 
-chartsApp.controller('chartController', ['$scope',
+chartsApp.controller('chartController', ['$scope', 'chartsService',
 	function ($scope) {
+		var DEFAULT_TITLE = "Choose a chart to begin"
 		$scope.chartType = 'line';
 
 		$scope.config = {
-			title: 'Chart1',
+			title: DEFAULT_TITLE,
 			tooltips: true,
 			labels: true,
 			mouseover: function () {
@@ -65,5 +66,17 @@ chartsApp.controller('chartController', ['$scope',
 				}
 			]
 		}
+
+		$scope.$watch('selected_charts', function () {
+			var title = DEFAULT_TITLE;
+			if ($scope.selected_charts.length > 0) {
+				title = $scope.selected_charts[0];
+				for (var i = 1; i < $scope.selected_charts.length; i++) {
+					title = title + " && " + $scope.selected_charts[i];
+				}
+			}
+			$scope.config.title = title;
+		}, true);
+
 	}
 ]);
