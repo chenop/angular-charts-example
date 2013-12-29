@@ -32,7 +32,7 @@
                     <input ng-model="searchText" placeholder="Search..." class="searchBox"/>
                     <button class="searchButton btn-xs" ng-click="clearSearchBox()"><i class="glyphicon glyphicon-remove"></i></button>
                 </tr>
-                <tr class="repeat-item" ng-repeat="chart in charts | filter:searchText" ng-class="(chart.selected) ? 'selected' : ''">
+                <tr class="repeat-item" ng-repeat="chart in charts | filter:{name:searchText}" ng-class="(chart.selected) ? 'selected' : ''">
                     <td>
                         <input type="checkbox" ng-model="chart.selected">
                     </td>
@@ -60,9 +60,9 @@
 
 <!-- angular-charts -->
 <script src='./lib/d3/d3.min.js'></script>
-<script src='./lib/angular-charts/dist/angular-charts.min.js'></script>
+<script src='./lib/angular-charts/dist/angular-charts.js'></script>
 
-<script src="./lib/angular-route/angular-route.min.js"></script>
+<!--<script src="./lib/angular-route/angular-route.min.js"></script>-->
 <script src="./lib/angular-animate/angular-animate.js"></script>
 
 <script src="./js/app.js"></script>

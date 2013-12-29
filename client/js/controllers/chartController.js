@@ -16,7 +16,7 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 		$scope.config = {
 			title: DEFAULT_TITLE,
 			tooltips: true,
-			labels: true,
+			labels: false,
 			mouseover: function () {
 			},
 			mouseout: function () {
@@ -30,44 +30,29 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 			}
 		}
 
-		$scope.data = {
-			"series": [
-				"Sales",
-				"Income",
-				"Expense"
-			],
-			"data": [
-				{
-					"x": "point1",
-					"y": [
-						54,
-						0,
-						70
-					],
-					"tooltip": "This is a tooltip"
-				},
-				{
-					"x": "point2",
-					"y": [
-						22,
-						10,
-						60
-					],
-					"tooltip": "This is a tooltip"
-				},
-				{
-					"x": "point3",
-					"y": [
-						11,
-						20,
-						50
-					],
-					"tooltip": "This is a tooltip"
-				}
-			]
-		}
+		buildChartData();
 
 		$scope.$watch('selected_charts', function () {
+			buildChartData();
+			updateTitle();
+		}, true);
+
+		function buildChartData() {
+			$scope.data = {
+				"series": [],
+				"data": []
+			}
+
+			for (var i = 0; i < $scope.charts.length; i++) {
+				var currChart = $scope.charts[i];
+				if (currChart.selected) {
+					$scope.data.series.push(currChart.name);
+					$scope.data.data.push(currChart.data);
+				}
+			}
+		}
+
+		function updateTitle() {
 			var title = DEFAULT_TITLE;
 			if ($scope.selected_charts.length > 0) {
 				title = $scope.selected_charts[0];
@@ -76,7 +61,7 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 				}
 			}
 			$scope.config.title = title;
-		}, true);
-
+		}
 	}
-]);
+])
+;
