@@ -10,6 +10,7 @@
 angular.module('chartsApp',
 	[
 		, 'angularCharts'
+		, 'ngAnimate'
 	]
 );
 
