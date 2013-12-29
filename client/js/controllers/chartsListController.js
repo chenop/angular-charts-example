@@ -12,9 +12,6 @@ chartsApp.controller('chartsListController', ['$scope', 'chartsService',
 	function ($scope, chartsService) {
 		$scope.charts = chartsService.getCharts();
 
-		// selected addresses
-		$scope.selected_charts = [];
-
 		// watch the selectAll checkBox for changes
 		$scope.$watch('shouldSelectAll', function () {
 			for (var i = 0; i < $scope.charts.length; i++) {
@@ -22,15 +19,26 @@ chartsApp.controller('chartsListController', ['$scope', 'chartsService',
 			}
 		}, true);
 
-		$scope.$watch('charts|filter:{selected:true}', function (nv) {
-			$scope.selected_charts = nv.map(function (chart) {
-				return chart;
-			});
-		}, true);
-
 		$scope.tableRowClicked = function(chart) {
 			chart.selected = !(chart.selected);
 		};
+
+		$scope.selectChart = function(chart) {
+			if ($scope.selected_chart != undefined)
+				$scope.selected_chart.selected = false;
+
+			if ($scope.selected_chart == chart) {
+				$scope.selected_chart = undefined;
+				return;
+			}
+			$scope.selected_chart = chart;
+			$scope.selected_chart.selected = true;
+
+		}
+
+		$scope.isChartSelected = function(chart) {
+			return ($scope.selected_chart == chart);
+		}
 
 		$scope.clearSearchBox = function() {
 			$scope.searchText = "";

@@ -1,6 +1,10 @@
-.table-hover > tbody > tr:hover > td {
-    background-color: rgba(54, 25, 25, .1);
-}
+/*a.list-group-item:hover {*/
+    /*background-color: rgba(54, 25, 25, .1);*/
+/*}*/
+
+/*.table-hover > tbody > tr:hover > td {*/
+    /*background-color: rgba(54, 25, 25, .1);*/
+/*}*/
 
 .row {
     margin-top: 60px;
@@ -11,8 +15,8 @@
 }
 
 #chart {
-    width:500px;
-    height:400px;
+    width: 500px;
+    height: 400px;
 }
 
 .x.axis, .y.axis {
@@ -21,17 +25,18 @@
 
 .repeat-item.ng-enter,
 .repeat-item.ng-leave {
-    -webkit-transition:0.5s linear all;
-    transition:0.5s linear all;
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
 }
 
 .repeat-item.ng-enter,
 .repeat-item.ng-leave.ng-leave-active {
-    opacity:0;
+    opacity: 0;
 }
+
 .repeat-item.ng-leave,
 .repeat-item.ng-enter.ng-enter-active {
-    opacity:1;
+    opacity: 1;
 }
 
 .searchBox {
@@ -41,4 +46,8 @@
 .searchButton {
     margin-left: 5px;
     font-weight: bold;
+}
+
+.chartsList {
+    margin-top: 10px;
 }

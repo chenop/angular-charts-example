@@ -20,26 +20,12 @@
 
         <div class="col-md-2">
 
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th><input type="checkbox" ng-model="shouldSelectAll" ng-click="selectAll($event)"></th>
-                    <th>Charts</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <input ng-model="searchText" placeholder="Search..." class="searchBox"/>
-                    <button class="searchButton btn-xs" ng-click="clearSearchBox()">X</i></button>
-                </tr>
-                <tr class="repeat-item" ng-repeat="chart in charts | filter:{name:searchText}" ng-class="(chart.selected) ? 'selected' : ''">
-                    <td>
-                        <input type="checkbox" ng-model="chart.selected">
-                    </td>
-                    <td ng-click="tableRowClicked(chart)">{{chart.name}}</td>
-                </tr>
-                </tbody>
-            </table>
+            <input ng-model="searchText" placeholder="Search..." class="searchBox"/>
+            <button class="searchButton btn-xs" ng-click="clearSearchBox()">X</i></button>
+
+            <div class="list-group chartsList">
+                <a ng-click="selectChart(chart)" href="#" ng-repeat="chart in charts | filter:{name:searchText}" class="list-group-item repeat-item" ng-class="isChartSelected(chart) ? 'selected' : ''">{{chart.name}}</a>
+            </div>
         </div>
 
         <div class="col-md-10 jumbotron" ng-controller="chartController">

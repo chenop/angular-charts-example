@@ -32,7 +32,7 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 
 		buildChartData();
 
-		$scope.$watch('selected_charts', function () {
+		$scope.$watch('selected_chart', function () {
 			buildChartData();
 			updateTitle();
 		}, true);
@@ -43,18 +43,15 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 				"data": []
 			}
 
-			if ($scope.selected_charts.length > 0) {
-				$scope.data = $scope.selected_charts[0].data;
+			if ($scope.selected_chart != undefined) {
+				$scope.data = $scope.selected_chart.data;
 			}
 		}
 
 		function updateTitle() {
 			var title = DEFAULT_TITLE;
-			if ($scope.selected_charts.length > 0) {
-				title = $scope.selected_charts[0].name;
-				for (var i = 1; i < $scope.selected_charts.length; i++) {
-					title = title + " && " + $scope.selected_charts[i].name;
-				}
+			if ($scope.selected_charts != undefined) {
+				title = $scope.selected_chart.name;
 			}
 			$scope.config.title = title;
 		}
