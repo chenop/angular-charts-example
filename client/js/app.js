@@ -7,7 +7,7 @@
  */
 
 // Declare app level module which depends on filters, and services
-angular.module('chartsApp',
+var app = angular.module('chartsApp',
 	[
 		, 'angularCharts'
 		, 'ngAnimate'
@@ -17,13 +17,9 @@ angular.module('chartsApp',
 //app.config(['$routeProvider', '$locationProvider',
 //	function ($routeProvider, $locationProvider) {
 //		$routeProvider
-//			.when('/', { templateUrl: '/views/home.html' })
-//			.when('/signin', { templateUrl: '/views/users/signin.html' })
-//			.when('/signup', { templateUrl: '/views/users/signup.html' })
-//			.when("/companies", { templateUrl: '/views/companies/list.html' })
-//			.when('/user_details', { templateUrl: '/views/users/details.html' })
+//			.when('/', { templateUrl: '/views/chart.html' })
 //			.otherwise({ redirectTo: '/' });
 //
 //		$locationProvider.html5Mode(true);
-//	}])
+//	}]) ;
 

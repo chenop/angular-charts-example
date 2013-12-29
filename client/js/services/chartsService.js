@@ -15,41 +15,77 @@ chartsApp.factory('chartsService', function () {
 				'name': 'chart1',
 				'selected': false,
 				'data': {
-					"x": "point1",
-					"y": [
-						54,
-						0,
-						70
+					'series': [
+						'a1'
+						, 'a2'
+						, 'a3'
 					],
-					"tooltip": "This is a tooltip"
+					'data': [
+						{
+							"x": "point1",
+							"y": [
+								54,
+								0,
+								70
+							],
+							"tooltip": "This is a tooltip"
+						},
+						{
+							"x": "point2",
+							"y": [
+								22,
+								10,
+								60
+							],
+							"tooltip": "This is a tooltip"
+						},
+						{
+							"x": "point3",
+							"y": [
+								11,
+								20,
+								50
+							],
+							"tooltip": "This is a tooltip"
+						}
+					]
 				}
 			},
 			{
-				'id': 2,
-				'name': 'chart2',
+				'id': 1,
+				'name': 'Another Chart',
 				'selected': false,
 				'data': {
-					"x": "point2",
-					"y": [
-						22,
-						10,
-						60
+					'series': [
+						'attr1'
+						, 'attr12'
 					],
-					"tooltip": "This is a tooltip"
-				}
-			},
-			{
-				'id': 3,
-				'name': 'chart3',
-				'selected': false,
-				data: {
-					"x": "point3",
-					"y": [
-						11,
-						20,
-						50
-					],
-					"tooltip": "This is a tooltip"
+					'data': [
+						{
+							"x": "snapshot1",
+							"y": [
+								10
+								, 20
+							],
+							"tooltip": "This is a tooltip"
+						},
+						{
+							"x": "snapshot2",
+							"y": [
+								25
+								, 7
+							],
+							"tooltip": "This is a tooltip"
+						},
+						{
+							"x": "snapshot3",
+							"y": [
+								60
+								, -2
+							],
+							"tooltip": "This is a tooltip"
+						}
+					]
 				}
 			}
 		];

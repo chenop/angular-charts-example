@@ -30,7 +30,7 @@
                 <tbody>
                 <tr>
                     <input ng-model="searchText" placeholder="Search..." class="searchBox"/>
-                    <button class="searchButton btn-xs" ng-click="clearSearchBox()"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button class="searchButton btn-xs" ng-click="clearSearchBox()">X</i></button>
                 </tr>
                 <tr class="repeat-item" ng-repeat="chart in charts | filter:{name:searchText}" ng-class="(chart.selected) ? 'selected' : ''">
                     <td>

@@ -43,21 +43,17 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 				"data": []
 			}
 
-			for (var i = 0; i < $scope.charts.length; i++) {
-				var currChart = $scope.charts[i];
-				if (currChart.selected) {
-					$scope.data.series.push(currChart.name);
-					$scope.data.data.push(currChart.data);
-				}
+			if ($scope.selected_charts.length > 0) {
+				$scope.data = $scope.selected_charts[0].data;
 			}
 		}
 
 		function updateTitle() {
 			var title = DEFAULT_TITLE;
 			if ($scope.selected_charts.length > 0) {
-				title = $scope.selected_charts[0];
+				title = $scope.selected_charts[0].name;
 				for (var i = 1; i < $scope.selected_charts.length; i++) {
-					title = title + " && " + $scope.selected_charts[i];
+					title = title + " && " + $scope.selected_charts[i].name;
 				}
 			}
 			$scope.config.title = title;
