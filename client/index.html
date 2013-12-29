@@ -31,7 +31,7 @@
                 <tr>
                     <input ng-model="searchText" placeholder="Search..."/>
                 </tr>
-                <tr class="repeat-item" ng-repeat="chart in charts | filter:searchText" ng-class="(chart.selected) ? 'selected' : ''">
+                <tr class="repeat-item" ng-repeat="chart in charts | filter:searchText" ng-class="(chart.selected) ? 'selected' : ''" ng-click="tableRowClicked(chart)">
                     <td>
                         <input type="checkbox" ng-model="chart.selected">
                     </td>

@@ -45,6 +45,10 @@ chartsApp.controller('chartsListController', ['$scope', 'chartsService',
 				return chart.name;
 			});
 		}, true);
+
+		$scope.tableRowClicked = function(chart) {
+			chart.selected = !(chart.selected);
+		};
 	}
 ]);
 
