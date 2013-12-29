@@ -49,6 +49,10 @@ chartsApp.controller('chartsListController', ['$scope', 'chartsService',
 		$scope.tableRowClicked = function(chart) {
 			chart.selected = !(chart.selected);
 		};
+
+		$scope.clearSearchBox = function() {
+			$scope.searchText = "";
+		}
 	}
 ]);
 

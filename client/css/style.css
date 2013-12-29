@@ -33,3 +33,11 @@
 .repeat-item.ng-enter.ng-enter-active {
     opacity:1;
 }
+
+.searchBox {
+    width: 80%;
+}
+
+.searchButton {
+    margin-left: 5px;
+}

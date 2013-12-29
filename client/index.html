@@ -29,13 +29,14 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <input ng-model="searchText" placeholder="Search..."/>
+                    <input ng-model="searchText" placeholder="Search..." class="searchBox"/>
+                    <button class="searchButton btn-xs" ng-click="clearSearchBox()"><i class="glyphicon glyphicon-remove"></i></button>
                 </tr>
-                <tr class="repeat-item" ng-repeat="chart in charts | filter:searchText" ng-class="(chart.selected) ? 'selected' : ''" ng-click="tableRowClicked(chart)">
+                <tr class="repeat-item" ng-repeat="chart in charts | filter:searchText" ng-class="(chart.selected) ? 'selected' : ''">
                     <td>
                         <input type="checkbox" ng-model="chart.selected">
                     </td>
-                    <td>{{chart.name}}</td>
+                    <td ng-click="tableRowClicked(chart)">{{chart.name}}</td>
                 </tr>
                 </tbody>
             </table>
