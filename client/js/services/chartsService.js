@@ -24,7 +24,6 @@ chartsApp.factory('chartsService', ['$http',
             initChartData: function (chart) {
                 return $http.get('../client/json/chartData.json', {tracker: 'chartTracker'})
                     .success(function (result, status, headers, config) {
-                        result.data.sort(compare);
                     }
 				).error(function(err) {
 						console.log("initChartData failed - Server is down :(");
