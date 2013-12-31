@@ -10,10 +10,14 @@ var chartsApp = angular.module('chartsApp');
 
 chartsApp.controller('chartsListController', ['$scope', 'chartsService',
 	function ($scope, chartsService) {
-		$scope.charts = chartsService.getCharts();
+		chartsService.initChartsList().then(function(asyncData) {
+            $scope.charts = asyncData.data;
+        });
 
 		// watch the selectAll checkBox for changes
 		$scope.$watch('shouldSelectAll', function () {
+            if ($scope.charts == undefined)
+                return;
 			for (var i = 0; i < $scope.charts.length; i++) {
 				$scope.charts[i].selected = $scope.shouldSelectAll;
 			}

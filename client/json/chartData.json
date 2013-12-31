@@ -1,0 +1,36 @@
+{
+	"series": [
+		"a1"
+		, "a2"
+		, "a3"
+	],
+	"data": [
+		{
+			"x": "point1",
+			"y": [
+				54,
+				0,
+				70
+			],
+			"tooltip": "This is a tooltip"
+		},
+		{
+			"x": "point2",
+			"y": [
+				22,
+				10,
+				60
+			],
+			"tooltip": "This is a tooltip"
+		},
+		{
+			"x": "point3",
+			"y": [
+				11,
+				20,
+				50
+			],
+			"tooltip": "This is a tooltip"
+		}
+	]
+}

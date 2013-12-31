@@ -8,8 +8,8 @@
 
 var chartsApp = angular.module('chartsApp');
 
-chartsApp.controller('chartController', ['$scope', 'chartsService',
-	function ($scope) {
+chartsApp.controller('chartController', ['$scope', 'chartsService', 'promiseTracker',
+	function ($scope, chartsService, promiseTracker) {
 		var DEFAULT_TITLE = "Choose a chart to begin"
 		$scope.chartType = 'line';
 
@@ -44,14 +44,17 @@ chartsApp.controller('chartController', ['$scope', 'chartsService',
 			}
 
 			if ($scope.selected_chart != undefined) {
-				$scope.data = $scope.selected_chart.data;
+                $scope.chartTracker = promiseTracker('chartTracker');
+                chartsService.initChartData($scope.selected_chart).then(function(asyncData) {
+                    $scope.data = asyncData.data;
+                });
 			}
 		}
 
 		function updateTitle() {
 			var title = DEFAULT_TITLE;
-			if ($scope.selected_charts != undefined) {
-				title = $scope.selected_chart.name;
+			if ($scope.selected_chart != undefined) {
+				title = $scope.selected_chart;
 			}
 			$scope.config.title = title;
 		}

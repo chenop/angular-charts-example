@@ -4,6 +4,8 @@
     <!--<meta charset="utf-8">-->
     <!-- Bootstrap core CSS -->
     <link href="./lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="./lib/angular-busy-master/dist/angular-busy.css" rel="stylesheet">
+
     <!-- Application's CSS -->
     <link rel="stylesheet" href="css/style.css"/>
     <title>Hackathon web-client</title>
@@ -24,12 +26,15 @@
             <button class="searchButton btn-xs" ng-click="clearSearchBox()">X</i></button>
 
             <div class="list-group chartsList">
-                <a ng-click="selectChart(chart)" href="#" ng-repeat="chart in charts | filter:{name:searchText}" class="list-group-item repeat-item" ng-class="isChartSelected(chart) ? 'selected' : ''">{{chart.name}}</a>
+                <a ng-click="selectChart(chart)" href="#" ng-repeat="chart in charts | filter:searchText"
+                   class="list-group-item repeat-item" ng-class="isChartSelected(chart) ? 'selected' : ''">{{chart}}</a>
             </div>
         </div>
 
-        <div class="col-md-10 jumbotron" ng-controller="chartController">
-            <div ac-chart="chartType" ac-data="data" ac-config="config" id='chart'></div>
+        <div cg-busy="'chartTracker'">
+            <div class="col-md-10 jumbotron" ng-controller="chartController">
+                <div ac-chart="chartType" ac-data="data" ac-config="config" id='chart'></div>
+            </div>
         </div>
 
     </div>
@@ -48,8 +53,10 @@
 <script src='./lib/d3/d3.min.js'></script>
 <script src='./lib/angular-charts/dist/angular-charts.js'></script>
 
-<!--<script src="./lib/angular-route/angular-route.min.js"></script>-->
+<script src="./lib/angular-route/angular-route.min.js"></script>
 <script src="./lib/angular-animate/angular-animate.js"></script>
+<script src="./lib/angular-promise-tracker/promise-tracker.js"></script>
+<script src="./lib/angular-busy-master/dist/angular-busy.js"></script>
 
 <script src="./js/app.js"></script>
 <script src="./js/controllers/chartsListController.js"></script>

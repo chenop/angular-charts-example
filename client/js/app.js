@@ -11,15 +11,9 @@ var app = angular.module('chartsApp',
 	[
 		, 'angularCharts'
 		, 'ngAnimate'
+		, 'ngRoute'
+		, 'ajoslin.promise-tracker'
+        , 'cgBusy'
 	]
 );
-
-//app.config(['$routeProvider', '$locationProvider',
-//	function ($routeProvider, $locationProvider) {
-//		$routeProvider
-//			.when('/', { templateUrl: '/views/chart.html' })
-//			.otherwise({ redirectTo: '/' });
-//
-//		$locationProvider.html5Mode(true);
-//	}]) ;
 
